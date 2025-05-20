@@ -23,7 +23,8 @@ LIGHT_THEME_BACKGROUND="#ffffff"
 LIGHT_THEME_FOREGROUND="#333333"
 
 class LoginPage(Frame):
-    def __init__(self, root,nextframe):
+    nextframe=None
+    def __init__(self, root,create_frame):
         super().__init__(master=root,width=WIDTH,height=HEIGHT,background=BLUE_BACKGROUD)
         self.place(x=0,y=0)
 
@@ -71,7 +72,8 @@ class LoginPage(Frame):
                                                     port=port.get()
                                                     )
             if connection_status == 1:
-                nextframe.tkraise()
+                create_frame()
+                self.nextframe.tkraise()
                 messagebox.showinfo(title="Connection",message=f"{message}")
             else:
                 messagebox.showerror(title="Connection",message=f'Not able to connect! due to,{message}')
@@ -136,7 +138,13 @@ class LoginPage(Frame):
         # ----------------------------------------------- connect button end of the page ------------------------------------------------
         connect_button=Button(master=login_element_frame,text="Connect",command=connection_function)
         connect_button.place(y=170,x=800)
-
+    
+    
+    
+    def set_frame(self,nextframe):
+        """
+        """
+        self.nextframe=nextframe
 
 
 
@@ -156,6 +164,8 @@ class ScriptingPage(Frame):
         font_size=IntVar()
         font_size.set(20)
         theme=StringVar()
+
+        
 
         # Functions of the frame.
         def change_theme():
@@ -212,7 +222,19 @@ class ScriptingPage(Frame):
             messagebox.showinfo(title="Connection",message=message)
             self.old_frame.tkraise()
 
-        user_greet=Label(master=self,text=f"Hello,{get_user_name()}",font=('Impact',20),background=dark_frame_color)
+        
+
+        
+        def show_username():
+            """
+            """
+            name=get_user_name()
+            user_greet.config(text=f"Hello,{name}")
+
+
+        self.bind("<Visibility>", lambda e:show_username())
+
+        user_greet=Label(master=self,text="Hello,",font=('Impact',20),background=dark_frame_color)
         user_greet.place(x=5,y=5)
 
         logout_button=Button(master=self,text="Logout",command=logout_function)

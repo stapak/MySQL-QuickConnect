@@ -46,7 +46,7 @@ def get_user_name():
     try:
         global cursor_object
         cursor_object.execute("SELECT user();")
-        return cursor_object.fetchone()[0]
+        return cursor_object.fetchone()[0].split('@')[0]
     except Exception as e:
         return f"{e}"
 
