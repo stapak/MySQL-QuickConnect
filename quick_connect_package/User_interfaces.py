@@ -36,7 +36,7 @@ class LoginPage(Frame):
 
 
         type_of_host=StringVar() # used to control radio button
-    
+        type_of_host.set('localhost')
 
         # Functions of the frame.
         def host_type():
@@ -105,7 +105,7 @@ class LoginPage(Frame):
 
         password_label=Label(master=login_element_frame,text="Password:",background=BLUE_BACKGROUD,font=('Oswald',20))
         password_label.place(x=250,y=120)
-        password_entry=Entry(master=login_element_frame,textvariable=password,font=('Calibri',20),)
+        password_entry=Entry(master=login_element_frame,textvariable=password,font=('Calibri',20),show='*')
         password_entry.place(y=120,x=400)
 
 
@@ -164,6 +164,7 @@ class ScriptingPage(Frame):
         font_size=IntVar()
         font_size.set(20)
         theme=StringVar()
+        theme.set('Dark')
 
         
 
