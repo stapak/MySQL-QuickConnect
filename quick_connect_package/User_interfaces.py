@@ -190,10 +190,13 @@ class ScriptingPage(Frame):
             """
             """
             result=execute_query(scripting_area.get("1.0", "end-1c"))
-            output=""
-            for i in result:
-                output=output+f'{i}\n'
-            print(output)
+            if type(result) in [list,dict]:
+                output=""
+                for i in result:
+                    output=output+f'{i}\n'
+            else:
+                output=result
+            
             output_area.insert(tk.INSERT,f"{output}")
 
 
