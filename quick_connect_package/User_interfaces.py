@@ -79,7 +79,7 @@ class LoginPage(Frame):
                 messagebox.showerror(title="Connection",message=f'Not able to connect! due to,{message}')
 
 
-
+       
         # Widgets of the Frame.
 
         title_label=Label(master=self,text="MySQL Quick Connect",background=BLUE_BACKGROUD,font=('Impact',60))
@@ -87,7 +87,7 @@ class LoginPage(Frame):
 
         subtitle_label=Label(master=self,text="----------- A tool for quick connecting with MySQL Database ---------",background=BLUE_BACKGROUD,font=('Impact',20))
         subtitle_label.place(x=150,y=190)
-
+        
         # ---------------------------------------------------------------------------------------------------------------
 
         login_element_frame=Frame(master=self,width=WIDTH,height=400,background=BLUE_BACKGROUD)
@@ -116,23 +116,28 @@ class LoginPage(Frame):
         localhost_radio_button=Radiobutton(master=login_element_frame,text="localhost",style="op.TRadiobutton",value="localhost",variable=type_of_host,command=host_type)
         localhost_radio_button.place(x=400,y=170)
 
-        custom_radio_button=Radiobutton(master=login_element_frame,text="custom",style="op.TRadiobutton",value="custom",variable=type_of_host,command=host_type)
+        custom_radio_button=Radiobutton(master=login_element_frame,text="remote",style="op.TRadiobutton",value="custom",variable=type_of_host,command=host_type)
         custom_radio_button.place(x=550,y=170)
 
 
         host_label=Label(master=login_element_frame,text="Host:",background=BLUE_BACKGROUD,font=('Oswald',20),state=tk.DISABLED)
         host_label.place(x=250,y=210)
-        host_entry=Entry(master=login_element_frame,textvariable=host,font=('Calibri',20),state=tk.DISABLED)
+        host_entry=Entry(master=login_element_frame,textvariable=host,font=('Calibri',20),state=tk.DISABLED,takefocus=0)
         host_entry.place(y=210,x=400)
 
         port_label=Label(master=login_element_frame,text="port:",background=BLUE_BACKGROUD,font=('Oswald',20),state=tk.DISABLED)
         port_label.place(x=250,y=260)
-        port_entry=Entry(master=login_element_frame,textvariable=port,font=('Calibri',20),state=tk.DISABLED)
+        port_entry=Entry(master=login_element_frame,textvariable=port,font=('Calibri',20),state=tk.DISABLED,takefocus=0)
         port_entry.place(y=260,x=400)
 
-        cover_frame=Frame(master=self,width=WIDTH,height=400,background=BLUE_BACKGROUD)
-        cover_frame.place(x=0,y=500)
+        cover_frame=Frame(master=self,width=450,height=400,background=BLUE_BACKGROUD)
+        cover_frame.place(x=245,y=500)
         cover_frame.tkraise()
+
+        source_code=Label(master=login_element_frame,text="@source",font=('Calibri',15),background=BLUE_BACKGROUD)
+        source_code.place(x=910,y=280)
+        import webbrowser
+        source_code.bind('<Button>',lambda e:webbrowser.open('https://github.com/stapak/MySQL-QuickConnect'))
 
 
         # ----------------------------------------------- connect button end of the page ------------------------------------------------

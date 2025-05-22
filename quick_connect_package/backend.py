@@ -27,7 +27,7 @@ def create_connection(username,password,host,port=None):
             cursor_object=connection.cursor()
             return 1,"Connecton sucessful."
     except mysql.connector.errors.ProgrammingError:
-        return 0, "the credentials are incorrect"
+        return 0, "Incorrect credentials "
     
     except mysql.connector.errors.InterfaceError:
         return 0,"the server is down or the host details are incorrect"
