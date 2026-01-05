@@ -16,7 +16,7 @@
 ## 📥 Download & Use
 For the easiest way to get started, download the standalone executable:
 
-1. Go to the **[Releases](https://github.com/stapak/QuickConnect/releases)** page.
+1. Go to the **[Releases](https://github.com/stapak/MySQL-QuickConnect/releases)** page.
 2. Download the `QuickConnect.exe` file.
 3. Run the file directly (no installation required).
 
