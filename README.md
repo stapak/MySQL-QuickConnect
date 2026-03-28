@@ -45,7 +45,7 @@ For the easiest way to get started, download the standalone executable:
 
 1. **Download/Clone:**
    ```bash
-   git clone [https://github.com/your-username/QuickConnect.git](https://github.com/your-username/QuickConnect.git)
+   git clone git@github.com:stapak/MySQL-QuickConnect.git
    ```
 
 2. **Install Dependencies:**
