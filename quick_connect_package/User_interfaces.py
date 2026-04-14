@@ -164,7 +164,7 @@ class ScriptingPage(Frame):
         self.place(x=0,y=0)
 
         # Variables of the frame.
-        dark_frame_color="#252526"
+        dark_frame_color="#424245"
         light_frame_color="#F8F0C6"
         font_size=IntVar()
         font_size.set(20)
@@ -196,12 +196,12 @@ class ScriptingPage(Frame):
             """
             result=execute_query(scripting_area.get("1.0", "end-1c"))
             if type(result) in [list,dict]:
-                output=""
+                output="------------- Executed -----------------\n"
                 for i in result:
                     output=output+f'{i}\n'
             else:
-                output=result
-            
+                output="------------- Executed ----------------"+"\n"+result+"\n"
+            print(output)
             output_area.insert(tk.INSERT,f"{output}")
 
 
